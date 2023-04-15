@@ -4,10 +4,11 @@ import os
 
 from dotenv import load_dotenv
 from flask import Flask, request
-from pyngrok import conf, ngrok
+
 from waitress import serve  # type: ignore
 
 from bot.handlers import bot, telebot
+from utils.ngrok import ngrok_config
 
 load_dotenv()
 
@@ -30,9 +31,9 @@ def webhook():
 
 if __name__ == "__main__":
     SERVER_PORT = os.getenv("SERVER_PORT")
-    NGROK_TOKEN = os.getenv("NGROK_TOKEN")
     ENV = os.getenv("ENV")
     BOT_POLLING = os.getenv("BOT_POLLING")
+    PROD_SERVER_URL = os.getenv("PROD_SERVER_URL")
 
     bot.remove_webhook()
     time.sleep(1)
@@ -40,16 +41,10 @@ if __name__ == "__main__":
     if BOT_POLLING == "True":
         bot.infinity_polling()
     else:
-        conf.get_default().config_path = "./config_ngrok.yml"
-        conf.get_default().region = "eu"
-        ngrok.set_auth_token(NGROK_TOKEN)
-
-        ngrok_tunel = ngrok.connect(SERVER_PORT, bind_tls=True)
-        ngrok_url = ngrok_tunel.public_url
-        print("URL NGROK:", ngrok_url)
-
-        bot.set_webhook(url=ngrok_url)
         if ENV == "prod":
+            bot.set_webhook(url=PROD_SERVER_URL)
             serve(flask_server, host="0.0.0.0", port=SERVER_PORT)
         else:
+            ngrok_url = ngrok_config()
+            bot.set_webhook(url=ngrok_url)
             flask_server.run(host="0.0.0.0", port=SERVER_PORT)

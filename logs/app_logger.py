@@ -42,7 +42,7 @@ def db_logging(func):
             end_time = time.time()
             logger\
                 .info('Execution time for {}: {}. chat_id: {}'
-                      .format(func.__name__, chat_id, end_time - start_time))
+                      .format(func.__name__, end_time - start_time, chat_id))
             return res
         except Exception as e:
             logger\
