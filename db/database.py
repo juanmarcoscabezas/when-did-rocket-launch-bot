@@ -11,9 +11,10 @@ load_dotenv()
 
 
 class DB:
-    DATABASE_NAME = urllib.parse.quote_plus(os.getenv('DATABASE_NAME'))
-    DATABASE_USER = urllib.parse.quote_plus(os.getenv('DATABASE_USER'))
-    DATABASE_PASSWORD = urllib.parse.quote_plus(os.getenv('DATABASE_PASSWORD'))
+    DATABASE_NAME = urllib.parse.quote_plus(os.getenv('DATABASE_NAME', ''))
+    DATABASE_USER = urllib.parse.quote_plus(os.getenv('DATABASE_USER', ''))
+    DATABASE_PASSWORD = urllib.parse.quote_plus(
+        os.getenv('DATABASE_PASSWORD', ''))
     database = None
 
     def __init__(self):
