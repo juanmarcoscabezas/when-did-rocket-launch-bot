@@ -3,9 +3,10 @@ from dotenv import load_dotenv
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 import urllib.parse
-from logger import db_logging
+from logs.logger import db_logging
 
 load_dotenv()
+
 
 class DB:
     DATABASE_NAME = urllib.parse.quote_plus(os.getenv('DATABASE_NAME'))
@@ -14,15 +15,21 @@ class DB:
     database = None
 
     def __init__(self):
-        uri = f"mongodb+srv://{self.DATABASE_USER}:{self.DATABASE_PASSWORD}@{self.DATABASE_NAME}.kgulykm.mongodb.net/?retryWrites=true&w=majority"
+        uri = 'mongodb+srv://{}:{}@{}.kgulykm.mongodb.net/?{}'\
+            .format(
+                self.DATABASE_USER,
+                self.DATABASE_PASSWORD,
+                self.DATABASE_NAME,
+                'retryWrites=true&w=majority'
+            )
         client = MongoClient(uri, server_api=ServerApi('1'))
         try:
             client.admin.command('ping')
             self.database = client['test-database']
-            print("Pinged your deployment. You successfully connected to MongoDB!")
+            print("Successfully connected to MongoDB")
         except Exception as e:
             print(e)
-    
+
     @db_logging
     def find_chat(self, chat_id):
         return self.database.chats.find_one({'chat_id': chat_id})
