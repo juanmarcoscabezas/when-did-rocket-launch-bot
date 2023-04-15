@@ -1,10 +1,12 @@
-from flask import Flask, request
-from bot.handlers import bot, telebot
-from pyngrok import ngrok, conf
-from dotenv import load_dotenv
-from waitress import serve
 import os
 import time
+
+from dotenv import load_dotenv
+from flask import Flask, request
+from pyngrok import conf, ngrok
+from waitress import serve
+
+from bot.handlers import bot, telebot
 
 load_dotenv()
 

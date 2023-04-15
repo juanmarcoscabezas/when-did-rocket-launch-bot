@@ -1,7 +1,4 @@
-from telebot.types import (
-    InlineKeyboardMarkup,
-    InlineKeyboardButton,
-)
+from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 
 def keyboard_inline():

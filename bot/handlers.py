@@ -1,24 +1,15 @@
 import os
 import random
-import telebot
 
-from telebot.types import (
-    InputMediaPhoto,
-)
-from db.database import DB
-from bot.utils import (
-    get_frame,
-    bisect
-)
+import telebot
+from telebot.types import InputMediaPhoto
+
 from bot.keyboard import keyboard_inline
+from bot.utils import bisect, get_frame
+from db.database import DB
 from logs.logger import telegram_logging
-from utils.texts import (
-    CAPTION,
-    MESSAGE_NOT_MODIFIED,
-    CONGRATULATIONS,
-    START,
-    END
-)
+from utils.texts import (CAPTION, CONGRATULATIONS, END, MESSAGE_NOT_MODIFIED,
+                         START)
 
 db = DB()
 

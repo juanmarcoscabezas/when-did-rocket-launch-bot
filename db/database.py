@@ -1,8 +1,10 @@
 import os
+import urllib.parse
+
 from dotenv import load_dotenv
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
-import urllib.parse
+
 from logs.logger import db_logging
 
 load_dotenv()
