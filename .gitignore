@@ -3,3 +3,7 @@
 logs/logs.txt
 .env
 config_ngrok.yml
+.mypy_cache
+.pytest_cache
+mongo-volume
+mongo-init.js

@@ -11,6 +11,7 @@ load_dotenv()
 
 
 class DBConnector:
+    __DATABASE_HOST = urllib.parse.quote_plus(os.getenv('DATABASE_HOST', ''))
     __DATABASE_NAME = urllib.parse.quote_plus(os.getenv('DATABASE_NAME', ''))
     __DATABASE_USER = urllib.parse.quote_plus(os.getenv('DATABASE_USER', ''))
     __DATABASE_PASSWORD = urllib.parse.quote_plus(
@@ -23,12 +24,11 @@ class DBConnector:
         return cls.instance
 
     def __init__(self):
-        uri = 'mongodb+srv://{}:{}@{}.kgulykm.mongodb.net/?{}'\
+        uri = 'mongodb://{}:{}@{}/'\
             .format(
                 self.__DATABASE_USER,
                 self.__DATABASE_PASSWORD,
-                self.__DATABASE_NAME,
-                'retryWrites=true&w=majority'
+                self.__DATABASE_HOST,
             )
         client = MongoClient(uri, server_api=ServerApi('1'))
         try:
