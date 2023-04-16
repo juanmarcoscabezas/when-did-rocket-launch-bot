@@ -1,6 +1,9 @@
 # When did the rocket launch?
 
+
 This is a Telegram bot, where we have a video of a rocket launch and we want to know at which frame exactly is the rocket launched using the binary search algorithm.
+
+Let's play [Rocket launch bot](https://t.me/when_rocket_launch_bot)!
 
 ## Installation
 
@@ -108,3 +111,28 @@ For tests execute
 $ cd app/
 $ python3 -m unittest
 ```
+
+# Architecture
+
+The Rocket Launch Bot is built using Flask and Telebot. The Flask application handles user requests, renders HTML templates and telebot webhook, while Telebot handles incoming messages from users and sends the responses.
+
+The code is organized into separate modules based on functionality, including:
+```
+app.py: The main Flask application module.
+
+handlers.py: A module that defines the Telebot message handlers for the bot.
+
+utils.py: A module that contains utility functions used throughout the code.
+
+database.py: A module that contains the database connection.
+
+.env: A configuration module that stores the Telegram bot API token.
+
+Dockerfile: A file that defines the Docker container image.
+```
+
+# Future Development
+Potential future developments for the Rocket Launch Bot include:
+
+- Increase test coverage
+- Adding a feature to display statistics on how many users answered "yes" or "no" to each image.
