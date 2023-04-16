@@ -10,13 +10,28 @@ This is a Telegram bot, where we have a video of a rocket launch and we want to 
 $ docker-compose up
 ```
 
-### Install with pip:
+### Install with pip and venv:
 
 ```
+$ python3 -m venv .venv
+$ source .venv/binary/activate
 $ pip install -r requirements.txt
 ```
 
 ### Enviroment variables
+```
+BOT_TOKEN=
+BOT_POLLING=False | True
+NGROK_TOKEN=
+SERVER_HOST=
+SERVER_PORT=5000
+DATABASE_HOST=
+DATABASE_NAME=
+DATABASE_USER=
+DATABASE_PASSWORD=
+ENV=dev | prod
+FLASK_DEBUG=1 | 0
+```
 
 
 ## Application Structure
@@ -87,8 +102,9 @@ def bisection(f, a, b, tolerance):
 
 # Tests
 
+For tests execute
 
-Run the `django-admin.py` command to run the tests:
 ```
-$ python3 manage.py test
+$ cd app/
+$ python3 -m unittest
 ```
