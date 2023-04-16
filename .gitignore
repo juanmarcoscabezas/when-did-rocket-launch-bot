@@ -1,6 +1,6 @@
 *.venv*
 *__pycache__*
-logs/logs.txt
+*logs.txt
 .env
 config_ngrok.yml
 .mypy_cache

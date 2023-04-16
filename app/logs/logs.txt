@@ -4942,3 +4942,6 @@ telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsucc
  2023-04-16 00:54:34,656 - INFO - Execution time for callback_query: 0.6378662586212158
  2023-04-16 00:54:35,649 - INFO - Execution time for find_chat: 0.000982046127319336. chat_id: 1549634525
  2023-04-16 00:54:36,912 - INFO - Execution time for callback_query: 1.2640879154205322
+ 2023-04-16 20:41:36,172 - INFO - Execution time for find_chat: 0.0016407966613769531. chat_id: 1549634525
+ 2023-04-16 20:41:36,173 - INFO - Execution time for update_chat: 0.0006005764007568359. chat_id: 1549634525
+ 2023-04-16 20:41:36,173 - INFO - Execution time for create_chat: 0.0024585723876953125. chat_id: 1549634525

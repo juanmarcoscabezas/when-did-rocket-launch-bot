@@ -11,7 +11,7 @@ services:
       - run
       - --host=0.0.0.0
     environment:
-      FLASK_DEBUG: 0
+      FLASK_DEBUG: ${FLASK_DEBUG}
       FLASK_APP: ./app.py
       FLASK_RUN_HOST: 0.0.0.0
       TEMPLATES_AUTO_RELOAD: 'True'
