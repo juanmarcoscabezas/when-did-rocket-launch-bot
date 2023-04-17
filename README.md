@@ -151,6 +151,7 @@ Potential future developments for the Rocket Launch Bot include:
 - Adding a feature to display statistics on how many users answered "yes" or "no" to each image.
 - Adding type hints, this will help to increase the code quality
 - Adding nginx and gunicorn Dockerfiles for production enviroment
+- Adding Internationalization
 
 
 # Considerations for writing maintainable code
