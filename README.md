@@ -111,7 +111,13 @@ def bisection(f, a, b, tolerance):
 
 # Tests
 
-For tests execute
+For tests inside container
+```
+$ docker ps
+$ docker exec {imageId} python3 -m unittest
+```
+
+For tests with venv execute
 
 ```
 $ cd app/
