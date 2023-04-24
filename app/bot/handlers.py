@@ -1,5 +1,4 @@
 import os
-import random
 
 import telebot
 from telebot.types import InputMediaPhoto, MenuButtonCommands, BotCommand
@@ -62,7 +61,7 @@ class BotHandlers():
             "chat_id": message.chat.id,
             "left": START,
             "right": END,
-            "mid": random.randint(START, END),
+            "mid": int((END + START) / 2),
             "attempts": 0,
             "finished": False,
         }

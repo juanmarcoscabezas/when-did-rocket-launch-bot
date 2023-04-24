@@ -1,4 +1,3 @@
-import math
 from utils.texts import START_COMMAND_DESCRIPTION
 
 
@@ -17,7 +16,7 @@ def bisect(chat, message):
     if message == 'no':
         chat['left'] = chat['mid']
         chat['attempts'] = chat['attempts'] + 1
-    chat['mid'] = int(math.ceil((chat['right'] + chat['left']) / 2))
+    chat['mid'] = int(((chat['right'] + chat['left']) / 2))
     return chat
 
 
